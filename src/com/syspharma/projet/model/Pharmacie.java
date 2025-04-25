@@ -1,4 +1,4 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
 public class Pharmacie {
     private String nom;

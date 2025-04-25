@@ -1,4 +1,4 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
 // Client hérite de User, donc aussi de Visiteur
 public class Client extends Utilisateur {
@@ -16,7 +16,9 @@ public class Client extends Utilisateur {
     public void setNumeroCommande(int numeroCommande) {
         this.numeroCommande = numeroCommande;
     }
-
+public String getNom(){
+        return this.nom;
+}
 
     @Override
     public String toString() {

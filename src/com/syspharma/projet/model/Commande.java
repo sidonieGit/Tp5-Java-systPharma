@@ -1,4 +1,4 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
 import java.util.List;
 

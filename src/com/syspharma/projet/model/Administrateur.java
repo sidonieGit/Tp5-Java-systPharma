@@ -1,5 +1,4 @@
-package com.syspharma.projet;
-
+package com.syspharma.projet.model;
 
 
 // Administrateur hérite de User (et donc de Visiteur)
@@ -22,6 +21,10 @@ public class Administrateur extends Utilisateur {
     public void modifierMotDePasse(String ancienMotDePasse, String nouveauMotDePasse) {
         super.modifierMotDePasse(ancienMotDePasse, nouveauMotDePasse);
     }
+ public String getNom(){ return this.nom;}
+
+
+
 
     @Override
     public String toString() {

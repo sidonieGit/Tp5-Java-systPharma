@@ -1,4 +1,4 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
 // Paiement associé à une commande
 public class Paiement {

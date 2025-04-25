@@ -1,6 +1,6 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
-public class Medicament {
+public class    Medicament {
     private String nom;
     private double prix;
     private String description;

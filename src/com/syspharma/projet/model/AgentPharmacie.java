@@ -1,6 +1,6 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
-import com.syspharma.projet.Utilisateur;
+
 
 // Agent de pharmacie hérite de User (et donc de Visiteur)
 public class AgentPharmacie extends Utilisateur {
@@ -48,10 +48,7 @@ public class AgentPharmacie extends Utilisateur {
         super.modifierMotDePasse(ancienMotDePasse, nouveauMotDePasse);
     }
 
-    @Override
-    public void rechercherProduit(String produit) {
-        super.rechercherProduit(produit);
-    }
+
 
     @Override
     public String toString() {

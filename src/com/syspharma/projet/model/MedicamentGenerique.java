@@ -1,4 +1,4 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
 
     // Un médicament générique est un type de médicament

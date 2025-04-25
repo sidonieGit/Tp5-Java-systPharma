@@ -1,5 +1,6 @@
 //nom du package
-import com.syspharma.projet.Medicament;
+package com.syspharma.projet;
+import com.syspharma.projet.model.Medicament;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
         Map<String, Medicament> medicamentMap = new HashMap<>();
 
         medicamentMap.put("Paracétamol", new Medicament("Paracétamol", 5.99, "Antidouleur", "Antalgique", "paracetamol.jpg"));

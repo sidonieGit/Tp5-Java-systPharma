@@ -1,7 +1,7 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
 // Classe abstraite User qui hérite de Visiteur et implémente IConnexion
-public abstract class Utilisateur extends Visiteur implements IConnexion {
+public abstract class Utilisateur implements IConnexion, IActionUtilisateur {
     protected String nom;
     protected String prenom;
     protected String email;
@@ -26,6 +26,8 @@ public abstract class Utilisateur extends Visiteur implements IConnexion {
         }
     }
 
+    public String getNom(){return this.nom;}
+
     @Override
     public void seDeconnecter() {
         System.out.println(nom + " s'est déconnecté.");
@@ -40,4 +42,24 @@ public abstract class Utilisateur extends Visiteur implements IConnexion {
             System.out.println("Ancien mot de passe incorrect !");
         }
     }
+    @Override
+    public void rechercherProduit(String produit, Pharmacie pharmacie) {
+        System.out.println("Recherche du produit : " + produit+ "dans la pharmacie: " + pharmacie);
+    }
+
+    @Override
+    public void consulterMedicament(String nomMedicament) {
+
+    }
+
+    @Override
+    public void consulterAssurances() {
+
+    }
+
+    @Override
+    public void gererPanier() {
+        System.out.println("Gestion du panier par le visiteur.");
+    }
+
 }

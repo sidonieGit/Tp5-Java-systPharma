@@ -1,4 +1,4 @@
-package com.syspharma.projet;
+package com.syspharma.projet.model;
 
 //// Interface pour la gestion de la connexion des utilisateurs ayant un compte
 // Interface pour gérer la connexion des utilisateurs
