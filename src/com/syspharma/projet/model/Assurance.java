@@ -2,25 +2,25 @@ package com.syspharma.projet.model;
 
 public class Assurance {
     private String numeroAssurance;
-    private String nom;
+    private String designation;
     private String information;
 
-    public Assurance(String numeroAssurance, String nom, String information) {
+    public Assurance(String numeroAssurance, String designation, String information) {
         this.numeroAssurance = numeroAssurance;
-        this.nom = nom;
+        this.designation = designation;
         this.information = information;
     }
 
     public String getNumeroAssurance() { return numeroAssurance; }
-    public String getNom() { return nom; }
+    public String getdesignation() { return designation; }
     public String getInformation() { return information; }
 
     public void setNumeroAssurance(String numeroAssurance) {
         this.numeroAssurance = numeroAssurance;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setdesignation(String designation) {
+        this.designation = designation;
     }
 
     public void setInformation(String information) {
@@ -32,7 +32,7 @@ public class Assurance {
     public String toString() {
         return "Assurance{" +
                 "numeroAssurance='" + numeroAssurance + '\'' +
-                ", nom='" + nom + '\'' +
+                ", designation='" + designation + '\'' +
                 ", information='" + information + '\'' +
                 '}';
     }

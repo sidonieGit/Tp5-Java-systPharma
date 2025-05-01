@@ -1,22 +1,22 @@
 package com.syspharma.projet.model;
 
 public class    Medicament {
-    private String nom;
+    private String designation;
     private double prix;
     private String description;
     private String categorie;
     private String image;
 
-    public Medicament(String nom, double prix, String description, String categorie, String image) {
-        this.nom = nom;
+    public Medicament(String designation, double prix, String description, String categorie, String image) {
+        this.designation = designation;
         this.prix = prix;
         this.description = description;
         this.categorie = categorie;
         this.image = image;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setdesignation(String designation) {
+        this.designation = designation;
     }
 
     public void setPrix(double prix) {
@@ -47,8 +47,8 @@ public class    Medicament {
         this.image = image;
     }
 
-    public String getNom() {
-        return nom;
+    public String getDesignation() {
+        return designation;
     }
 
     public double getPrix() {
@@ -58,7 +58,7 @@ public class    Medicament {
     @Override
     public String toString() {
         return "Medicament{" +
-                "nom='" + nom + '\'' +
+                "designation='" + designation + '\'' +
                 ", prix=" + prix +
                 ", description='" + description + '\'' +
                 ", categorie='" + categorie + '\'' +
@@ -74,7 +74,7 @@ public class    Medicament {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Medicament that = (Medicament) obj;
-        return nom.equals(that.nom);
+        return designation.equals(that.designation);
     }
     /*
      *Ce code ajoutera un doublon !
@@ -82,7 +82,7 @@ public class    Medicament {
      */
     @Override
     public int hashCode() {
-        return nom.hashCode();
+        return designation.hashCode();
     }
 
 }

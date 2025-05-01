@@ -1,13 +1,11 @@
-package com.syspharma.projet.model;
-
-import java.util.List;
+package com.syspharma.projet.commande;
 
 public class Commande {
     private int numeroCommande;
     private String dateCommande;
     private String statutCommande;
     private double montantTotal;
-    private Panier panier; //  Association avec Panier
+    private Paiement.Panier panier; //  Association avec Panier
 
     //  Suppression de List<ArticlePanier> articles (association déjà existante)
 
@@ -34,7 +32,7 @@ public class Commande {
     public double getMontantTotal() {
         return montantTotal;
     }
-    public Panier getPanier() {
+    public Paiement.Panier getPanier() {
         //  Retourne le panier associé
         return panier;
     }

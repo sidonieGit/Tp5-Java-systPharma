@@ -1,7 +1,9 @@
-package com.syspharma.projet.model;
+package com.syspharma.projet.commande;
 
 
-    public class ArticlePanier {
+import com.syspharma.projet.model.Medicament;
+
+public class ArticlePanier {
         private Medicament medicament;
         private int quantite;
         private double prixUnitaire;

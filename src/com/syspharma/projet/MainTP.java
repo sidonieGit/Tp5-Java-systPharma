@@ -12,13 +12,13 @@ public class MainTP{
 
         // Un visiteur crée un compte pour devenir client
         Client client1 = gestion.creerCompteClient(
-                "Sido", "Dupont", "alice@mail.com", "0600000000", "pass123");
+                "Sido", "Dupont", "alice@mail.com", "ange raphi", "0600000000", "pass123");
         Client client2 = gestion.creerCompteClient(
-                "Alice", "Cost", "cost@mail.com", "0600000000", "pass123");
+                "Alice", "Cost", "cost@mail.com", "ange Rapho",  "0600000000", "pass123");
         System.out.println("*************les clients ************:"+ client1+ " et "+client2 +" ont été cree.");
 
         //Création d'un agent par un administrateur
-        Administrateur admin = new Administrateur("Admin1", "Sys", "admin@mail.com", "0777777777", "adminpass");
+        Administrateur admin = new Administrateur("Admin1", "Sys", "admin@mail.com", "ange rapha", "0777777777", "adminpass");
 
         AgentPharmacie agent = gestion.creerCompteAgent(admin, "Paul", "Jean", "agent@mail.com", "0611111111", "agentpass", "MAT001", "Paris");
        // System.out.println(" :"+ agent + " .");
@@ -29,7 +29,7 @@ public class MainTP{
         users = new ArrayList<Client>();
         users.add(client1);
         users.add(client2);
-        System.out.println("Liste des clients:");
+        System.out.println("********************Liste des clients:*************************");
         for (Client c : users) System.out.println(c);
     }
 }
