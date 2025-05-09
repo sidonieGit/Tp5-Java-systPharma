@@ -1,14 +1,12 @@
 package com.syspharma.projet.model;
 
+public class MedicamentGenerique extends Medicament {
+    private Medicament medicamentOriginal;
 
-    // Un médicament générique est un type de médicament
-    public class MedicamentGenerique extends Medicament {
-
-        protected String medocOrignal;
-        public MedicamentGenerique(String nom, double prix, String description, String categorie, String image, String medocOriginal) {
-            super(nom, prix, description, categorie, image);
-            this.medocOrignal = medocOriginal;
-        }
+    public MedicamentGenerique(String designation, double prix, String description, String image, Categorie categorie, Medicament medicamentOriginal) {
+        super(designation, prix, description, image, categorie);
+        this.medicamentOriginal = medicamentOriginal;
     }
 
-
+    // getter
+}

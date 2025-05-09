@@ -1,107 +1,124 @@
-# 💊 SystPharma - Plateforme de gestion de pharmacie
+# 💊 SystPharma – Plateforme de gestion de pharmacie
 
-**SystPharma** est une application Java qui permet de gérer les activités d’une pharmacie moderne.  
-Ce projet a été conçu dans le cadre du TP (avec la mise à jour progressive) du parcours de formation pour pratiquer la manipulation des collections Java.
+**SystPharma** est une application Java orientée objet conçue pour faciliter la gestion d’une pharmacie moderne.  
+Elle permet aux clients, agents de pharmacie et administrateurs d’interagir avec les différentes fonctionnalités autour des médicaments, des commandes, du panier, des assurances et des statistiques.
+
+---
 
 ## 👥 Acteurs
 
-Client, Agent de pharmacie et Administrateur
+- **Client** : Recherche, commande et paie les médicaments.
+- **Agent de pharmacie** : Gère les médicaments, les assurances et les commandes.
+- **Administrateur** : Supervise les pharmacies, les utilisateurs et les statistiques.
 
-## 🧾 Objectifs
+---
 
-Dans sa version 1, le logiciel permet :
+## 🧾 Fonctionnalités (Version 2)
 
-### Aux utilisateurs de :
+### 🔐 Utilisateurs authentifiés :
+- Connexion / déconnexion
+- Mise à jour du compte
+- Rechercher un médicament (par nom, par catégorie, ou dans une pharmacie donnée)
+- Rechercher une assurance ou celles prises en charge par une pharmacie
+- Gérer un panier :
+  - Ajouter un article
+  - Supprimer un article
+  - Vider le panier
+  - Obtenir le montant total
 
-- S’authentifier
-- Mettre à jour son compte
-- Rechercher un médicament (Afficher les génériques d’un médicament avec les prix associés peut être une scénario d’exception pour rechercher produits)
-- Rechercher un médicament dans une pharmacie donnée
-- Rechercher une assurance
-- Rechercher une assurance prise en charge par une pharmacie
-- Gérer un panier. A partir du panier, l’utilisateur peut obtenir le montant total, ajouter un article, supprimer un article ou tous les articles du panier
+---
 
-### Spécifiquement aux clients de :
+### 👤 Spécifiquement pour les **clients** :
+- Créer un compte
+- Passer une commande de médicaments dans une pharmacie
+- Consulter une commande à une date donnée
+- Obtenir un récapitulatif de commande (montant + articles)
+- Effectuer le paiement (Espèce ou en ligne)
 
--Créer compte
+---
 
-- Passer une commande de médicament dans une pharmacie
-- Effectuer le paiement de sa commande. A travers sa commande il peut obtenir la liste de ses articles, ainsi que le montant total
-
-### Spécifiquement à l’agent pharmacie de :
-
-Gérer les médicaments :
-
-- Ajouter, supprimer, modifier un médicament en stock
-- Lister les médicaments
-
-Gérer les assurances :
-
-- Ajouter, supprimer, modifier une assurance en stock
-- Lister les assurances
-
-Gérer les commandes
-
+### 🧑‍⚕️ Spécifiquement pour les **agents de pharmacie** :
+- Ajouter, modifier, supprimer et lister les médicaments
+- Ajouter, modifier, supprimer et lister les assurances
 - Lister les commandes
-- Confirmer la livraison d’une commande après livraison ou après paiement et livraison
+- Confirmer la livraison après paiement ou retrait
+- Lister les clients ayant commandé dans une pharmacie (par statut)
+- Vérifier la pharmacie associée à une commande
 
-### Spécifiquement à l’administrateur de :
+---
 
-Gérer les pharmacies :
+### 🛠️ Spécifiquement pour les **administrateurs** :
+- Ajouter, modifier, supprimer et lister les pharmacies
+- Créer un compte pour un agent de pharmacie
+- Gérer les comptes utilisateur (client / agent)
+- Modifier le statut d’un compte (actif, désactivé, etc.)
+- Lister toutes les commandes d’une pharmacie
+- Afficher les statistiques globales ou par pharmacie
+- Lister les médicaments les plus commandés
 
-- Ajouter, supprimer, modifier, lister, gérer les pharmacies.
-- Créer compte d’un agent de pharmacie
+---
 
-Gérer les utilisateurs :
+## 📦 Modèle métier
 
-- Ajouter, supprimer, modifier, lister, gérer les comptes utilisateur.
-- Lister les commandes dans une pharmacie
-- Afficher les statistiques sur une période donnée
+Les principales entités du projet sont :
 
-## Les classes canditates
+| Entité             | Attributs clés |
+|--------------------|----------------|
+| **Médicament**     | désignation, prix, description, catégorie, image |
+| **Générique**      | désignation, prix, description, médicament original |
+| **Catégorie**      | désignation |
+| **Assurance**      | numéro unique, désignation, description |
+| **Client**         | nom, prénom, email, adresse, téléphone, mot de passe, numéro de commande |
+| **Agent pharmacie**| nom, prénom, matricule, email, adresse, téléphone, mot de passe |
+| **Administrateur** | nom, prénom, email, adresse, téléphone, mot de passe |
+| **Pharmacie**      | désignation, email, adresse, téléphone, directeur, horaires, stock, assurances |
+| **Article Panier** | médicament, quantité, prix unitaire |
+| **Panier**         | état (EN_COURS, VALIDE, VIDE), liste d'articles |
+| **Commande**       | numéro, date, statut, client, pharmacie, panier |
+| **Paiement**       | montant, mode de paiement, date |
+| **Statistique**    | nombre de commandes, clients, chiffre d'affaires, produits vendus |
 
-- Un médicament est caractérisé par : Une désignation, Un prix unitaire, Une description, Une catégorie, Une image
-- Un générique est caractérisé par : Une désignation,Un prix unitaire, Une description, Une catégorie, Une image, Un nom de médicament Original
-- Une assurance est caractérisée par : Un numéro d’assurance unique, Une désignation, Une description
-- Un client est caractérisé par : Un nom, Un prénom, Une adresse email, Une adresse, Mot de passe, Un numéro de téléphone, Un numéro de commande reçu par mail après paiement
-- Un agent de pharmacie est caractérisé par : Un matricule d’employé, Un nom, Un prénom, Une adresse email, Une adresse, Mot de passe, Un numéro de téléphone
-- Un administrateur est caractérisé par : Un nom, Un prénom, Une adresse email, Une adresse, Mot de passe, Un numéro de téléphone
-- Une pharmacie est caractérisée par : Une désignation, Une adresse email, Une adresse, Un numéro de téléphone, Un directeur, Une heure d’ouverture, Une heure de fermeture
-- Un Article Panier par : Un médicament, Une quantité, Un prix unitaire
-- Un Panier par : Un état panier, Une liste des articles panier
-- Un paiement par : Un montant, Un mode paiement, Une date de paiement
-- Une commande est caractérisée par : Un numéro de la commande, Une date de commande, Un statut commande
+---
 
-### Use Case diagram
+## 📊 Diagrammes
 
-![use case diagram](src/com/syspharma/projet//img/Use-case-diag.PNG)
+### 🧰 Use Case Diagram
+![use case diagram](src/com/syspharma/projet/img/Use-case-diag.PNG)
 
-### Class Diagram
-
+### 📘 Class Diagram
 ![class diagram](src/com/syspharma/projet/img/Class-diag.PNG)
 
-## 📁 Structure du projet
+---
 
-TP5-ProjetPersoJavaClass/ ├── src/ # Code source ├── .idea/ # Fichiers de configuration IntelliJ ├── .gitignore # Fichiers à ignorer ├── out/ # Dossier de compilation ├── untitled.iml # Fichier de configuration projet IntelliJ └── README.md # Présentation du projet
+## 📁 Structure du projet
+![Stucture du projet](src/com/syspharma/projet/img/StructureProjet.PNG)
+
+---
 
 ## 🚀 Technologies utilisées
 
-- Java
-- Collections (List, Set, Map)
+- Java (POO + Collections : `List`, `Set`, `Map`)
 - IntelliJ IDEA
 - Git & GitHub
 
-## 🛠️ En cours
+---
 
-- [x] Création des classes de base
-- [ ] Connexion entre entités
-- [x] Interface utilisateur
-- [ ] Ajout de la persistance des données
+## 📈 État d’avancement
 
-## 📚 Auteur
+- [x] Modélisation UML
+- [x] Classes métier et héritage
+- [x] Interfaces & services
+- [x] Gestion des comptes
+- [x] Gestion du panier et des commandes
+- [ ] Persistance (fichiers ou base de données)
+- [ ] Interface graphique (JavaFX / Web)
+
+---
+
+## 👩‍💻 Auteur
 
 - Sidonie — Apprenante Fullstack Java, Objis (Février 2024–2025)
 - Linkedin: www.linkedin.com/in/sidonie-djuissi-fohouo
 - Email: sidoniedjuissifohouo@gmail.com
 - Tel: +237 696 00 23 77
-- Dernière mise à jour 02/05/2025
+- Dernière mise à jour 09/05/2025

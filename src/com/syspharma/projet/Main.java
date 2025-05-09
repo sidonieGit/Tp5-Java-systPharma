@@ -1,6 +1,7 @@
 //nom du package
 package com.syspharma.projet;
 import com.syspharma.projet.model.Medicament;
+import com.syspharma.projet.model.Categorie;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,10 +12,10 @@ public class Main {
     public static void main(String[] args) {
 
         Map<String, Medicament> medicamentMap = new HashMap<>();
-
-        medicamentMap.put("Paracétamol", new Medicament("Paracétamol", 5.99, "Antidouleur", "Antalgique", "paracetamol.jpg"));
-        medicamentMap.put("Ibuprofène", new Medicament("Ibuprofène", 7.49, "Anti-inflammatoire", "Anti-inflammatoire", "ibuprofene.jpg"));
-        medicamentMap.put("Aspirine", new Medicament("Aspirine", 4.99, "Analgésique", "Antalgique", "aspirine.jpg"));
+        Categorie antalgique = new Categorie("Antalgique");
+        medicamentMap.put("Paracétamol", new Medicament("Paracétamol", 5.99, "Antidouleur", "paracetamol.jpg", antalgique));
+        medicamentMap.put("Ibuprofène", new Medicament("Ibuprofène", 7.49, "Anti-inflammatoire", "ibuprofene.jpg", antalgique));
+        medicamentMap.put("Aspirine", new Medicament("Aspirine", 4.99, "Analgésique", "aspirine.jpg", antalgique));
 
         System.out.println("Prix de l'Ibuprofène : " + medicamentMap.get("Ibuprofène").getPrix() + "€");
 

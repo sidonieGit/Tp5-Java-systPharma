@@ -3,37 +3,46 @@ package com.syspharma.projet.model;
 public class Assurance {
     private String numeroAssurance;
     private String designation;
-    private String information;
+    private String description;
 
-    public Assurance(String numeroAssurance, String designation, String information) {
+    public Assurance(String numeroAssurance, String designation, String description) {
         this.numeroAssurance = numeroAssurance;
         this.designation = designation;
-        this.information = information;
+        this.description = description;
     }
 
-    public String getNumeroAssurance() { return numeroAssurance; }
-    public String getdesignation() { return designation; }
-    public String getInformation() { return information; }
+    // getter/setter
+
+    public String getNumeroAssurance() {
+        return numeroAssurance;
+    }
 
     public void setNumeroAssurance(String numeroAssurance) {
         this.numeroAssurance = numeroAssurance;
     }
 
-    public void setdesignation(String designation) {
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
         this.designation = designation;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
+    public String getDescription() {
+        return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
     public String toString() {
         return "Assurance{" +
                 "numeroAssurance='" + numeroAssurance + '\'' +
                 ", designation='" + designation + '\'' +
-                ", information='" + information + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
