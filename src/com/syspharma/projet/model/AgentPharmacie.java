@@ -1,90 +1,20 @@
 package com.syspharma.projet.model;
 
-
-import com.syspharma.projet.commande.Paiement;
-
-// Agent de pharmacie hérite de User (et donc de Visiteur)
+/**
+ * Représente un agent de pharmacie en charge des stocks et des commandes.
+ */
 public class AgentPharmacie extends Utilisateur {
-    private String matriculeEmploye;
+    private String matricule;
+    private Pharmacie pharmacie;
 
-
-    public AgentPharmacie(String nom, String prenom, String email,String adresse, String telephone, String password, String matriculeEmploye) {
+    public AgentPharmacie(String nom, String prenom, String email, String adresse, String telephone, String password, String matricule) {
         super(nom, prenom, email, adresse, telephone, password);
-        this.matriculeEmploye = matriculeEmploye;
+        this.matricule = matricule;
     }
 
-    public String getMatriculeEmploye() {
-        return matriculeEmploye;
-    }
+    public String getMatricule() { return matricule; }
+    public void setMatricule(String matricule) { this.matricule = matricule; }
 
-    public void setMatriculeEmploye(String matriculeEmploye) {
-        this.matriculeEmploye = matriculeEmploye;
-    }
-
-
-
-    public AgentPharmacie(String nom, String prenom, String email, String adresse, String telephone, String password) {
-        super(nom, prenom, email, adresse, telephone, password);
-    }
-
-    @Override
-    public boolean seConnecter(String email, String password) {
-        super.seConnecter(email, password);
-        return true;
-    }
-
-    @Override
-    public boolean seDeconnecter() {
-        super.seDeconnecter();
-        return true;
-    }
-
-   /* @Override
-    public void modifierMotDePasse(String ancienMotDePasse, String nouveauMotDePasse) {
-        super.modifierMotDePasse(ancienMotDePasse, nouveauMotDePasse);
-    }*/
-
-    @Override
-    public boolean miseAJourCompte(Utilisateur utilisateur) {
-        System.out.println("vous pouvez choisir quel propriété metre à jour");
-        return true;
-    }
-
-    @Override
-    public boolean rechercherMedicament(Medicament medicament, Pharmacie pharmacie) {
-        return false;
-    }
-
-    @Override
-    public boolean rechercherMedicament(Medicament medicament) {
-        return false;
-    }
-
-    @Override
-    public boolean rechercherAssurances(Assurance assurance, Pharmacie pharmacie) {
-        return false;
-    }
-
-    @Override
-    public boolean rechercherAssurance(Assurance assurance) {
-        return false;
-    }
-
-    @Override
-    public boolean gererPanier(Paiement.Panier panier) {
-        return false;
-    }
-
-    @Override
-    public String toString() {
-        return "AgentPharmacie{" +
-                "matriculeEmploye='" + matriculeEmploye + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", email='" + email + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+    public Pharmacie getPharmacie() { return pharmacie; }
+    public void setPharmacie(Pharmacie pharmacie) { this.pharmacie = pharmacie; }
 }

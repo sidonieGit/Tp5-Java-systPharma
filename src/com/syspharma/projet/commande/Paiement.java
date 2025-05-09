@@ -1,84 +1,35 @@
 package com.syspharma.projet.commande;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.syspharma.projet.enums.ModePaiement;
 
-// Paiement associé à une commande
+import java.time.LocalDate;
+
 public class Paiement {
     private double montant;
-    private String modePaiement;
-    private String datePaiement;
+    private ModePaiement modePaiement;
+    private LocalDate datePaiement;
+    private Commande commande;
 
-    public Paiement(double montant, String modePaiement, String datePaiement) {
+    public Paiement(double montant, String modePaiementStr, Commande commande) {
         this.montant = montant;
-        this.modePaiement = modePaiement;
-        this.datePaiement = datePaiement;
+        this.modePaiement = ModePaiement.valueOf(modePaiementStr.toUpperCase());
+        this.datePaiement = LocalDate.now();
+        this.commande = commande;
     }
 
     public double getMontant() {
         return montant;
     }
 
-    public void setMontant(double montant) {
-        this.montant = montant;
-    }
-
-    public String getModePaiement() {
+    public ModePaiement getModePaiement() {
         return modePaiement;
     }
 
-    public void setModePaiement(String modePaiement) {
-        this.modePaiement = modePaiement;
-    }
-
-    public String getDatePaiement() {
+    public LocalDate getDatePaiement() {
         return datePaiement;
     }
 
-    public void setDatePaiement(String datePaiement) {
-        this.datePaiement = datePaiement;
-    }
-
-    @Override
-    public String toString() {
-        return "Paiement{" +
-                "montant=" + montant +
-                ", modePaiement='" + modePaiement + '\'' +
-                ", datePaiement='" + datePaiement + '\'' +
-                '}';
-    }
-
-    public static class Panier {
-        private List<ArticlePanier> articles;
-        private boolean etat; // ✅ Exemple : actif ou non
-
-        public Panier() {
-            this.articles = new ArrayList<>();
-            this.etat = true;
-        }
-
-        public void ajouterArticle(ArticlePanier article) {
-            articles.add(article);
-        }
-
-        public void supprimerArticle(ArticlePanier article) {
-            articles.remove(article);
-        }
-
-        public void viderPanier() {
-            articles.clear();
-        }
-
-        public List<ArticlePanier> getArticles() {
-            return articles;
-        }
-
-        public boolean isActif() {
-            return etat;
-        }
-
-        public void setEtat(boolean etat) {
-            this.etat = etat;
-        }
+    public Commande getCommande() {
+        return commande;
     }
 }

@@ -1,47 +1,110 @@
 package com.syspharma.projet.commande;
 
+import com.syspharma.projet.enums.StatutCommande;
+import com.syspharma.projet.model.Client;
+import com.syspharma.projet.model.Pharmacie;
+
+import java.time.LocalDate;
+
 public class Commande {
-    private int numeroCommande;
-    private String dateCommande;
-    private String statutCommande;
+    private static int compteur = 1;
+
+    private String numeroCommande; // formaté
+    private LocalDate dateCommande;
+    private StatutCommande statut;
     private double montantTotal;
-    private Paiement.Panier panier; //  Association avec Panier
+    private Panier panier;
+    private Client client;
+    private Pharmacie pharmacie;
+    private Paiement paiement;
 
-    //  Suppression de List<ArticlePanier> articles (association déjà existante)
-
-    public Commande(int numeroCommande, String dateCommande, String statutCommande, double montantTotal) {
-        this.numeroCommande = numeroCommande;
-        this.dateCommande = dateCommande;
-        this.statutCommande = statutCommande;
-        this.montantTotal = montantTotal;
-        this.panier = panier; // On associe un panier à la commande
+    public Commande(Client client, Panier panier, Pharmacie pharmacie) {
+        this.numeroCommande = genererNumeroCommande(compteur++);
+        this.dateCommande = LocalDate.now();
+        this.statut = StatutCommande.EN_ATTENTE;
+        this.panier = panier;
+        this.client = client;
+        this.pharmacie = pharmacie;
+        this.montantTotal = panier.calculerMontantTotal();
     }
 
-    public int getNumeroCommande() {
+    public static String genererNumeroCommande(int id) {
+        return "CMD-" + LocalDate.now().getYear() + "-" + String.format("%06d", id);
+    }
+
+    // getters
+
+    public static int getCompteur() {
+        return compteur;
+    }
+
+    public String getNumeroCommande() {
         return numeroCommande;
     }
 
-    public String getDateCommande() {
+    public LocalDate getDateCommande() {
         return dateCommande;
     }
 
-    public String getStatutCommande() {
-        return statutCommande;
+    public StatutCommande getStatut() {
+        return statut;
     }
 
     public double getMontantTotal() {
         return montantTotal;
     }
-    public Paiement.Panier getPanier() {
-        //  Retourne le panier associé
+
+    public Panier getPanier() {
         return panier;
     }
 
-    public void setStatutCommande(String statutCommande) {
-        this.statutCommande = statutCommande;
+    public Pharmacie getPharmacie() {
+        return pharmacie;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Paiement getPaiement() {
+        return paiement;
+    }
+
+    // setters comme avant
+
+    public static void setCompteur(int compteur) {
+        Commande.compteur = compteur;
+    }
+
+    public void setNumeroCommande(String numeroCommande) {
+        this.numeroCommande = numeroCommande;
+    }
+
+    public void setDateCommande(LocalDate dateCommande) {
+        this.dateCommande = dateCommande;
     }
 
     public void setMontantTotal(double montantTotal) {
         this.montantTotal = montantTotal;
+    }
+
+    public void setStatut(StatutCommande statut) {
+        this.statut = statut;
+    }
+
+    public void setPanier(Panier panier) {
+        this.panier = panier;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setPharmacie(Pharmacie pharmacie) {
+        this.pharmacie = pharmacie;
+    }
+
+    public void setPaiement(Paiement paiement) {
+        this.paiement = paiement;
     }
 }

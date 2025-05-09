@@ -1,51 +1,28 @@
 package com.syspharma.projet.model;
 
-public class    Medicament {
+public class Medicament {
     private String designation;
     private double prix;
     private String description;
-    private String categorie;
     private String image;
+    private Categorie categorie;
 
-    public Medicament(String designation, double prix, String description, String categorie, String image) {
+
+
+    public Medicament(String designation, double prix, String description, String image, Categorie categorie) {
         this.designation = designation;
         this.prix = prix;
         this.description = description;
-        this.categorie = categorie;
         this.image = image;
-    }
-
-    public void setdesignation(String designation) {
-        this.designation = designation;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-
-    public String getCategorie() {
-        return categorie;
-    }
-
-    public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+    public Medicament(String designation, double prix, String description) {
+        this.designation = designation;
+        this.prix = prix;
         this.description = description;
     }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
+    // getters
 
     public String getDesignation() {
         return designation;
@@ -55,34 +32,50 @@ public class    Medicament {
         return prix;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+
+    // setters
+
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public String toString() {
         return "Medicament{" +
                 "designation='" + designation + '\'' +
                 ", prix=" + prix +
                 ", description='" + description + '\'' +
-                ", categorie='" + categorie + '\'' +
                 ", image='" + image + '\'' +
+                ", categorie=" + categorie +
                 '}';
     }
-/*
-*Ce code ajoutera un doublon !
-* Pourquoi ? Parce que HashSet utilise equals() et hashCode() pour vérifier les doublons. Ajoutons-les dans Medicament :
- */
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Medicament that = (Medicament) obj;
-        return designation.equals(that.designation);
-    }
-    /*
-     *Ce code ajoutera un doublon !
-     * Pourquoi ? Parce que HashSet utilise equals() et hashCode() pour vérifier les doublons. Ajoutons-les dans Medicament :
-     */
-    @Override
-    public int hashCode() {
-        return designation.hashCode();
-    }
-
 }

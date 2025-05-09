@@ -1,11 +1,33 @@
 package com.syspharma.projet.interfaces;
 
-import com.syspharma.projet.model.Utilisateur;
+import com.syspharma.projet.model.Compte;
 
-//// Interface pour la gestion de la connexion des utilisateurs ayant un compte
-// Interface pour gérer la connexion des utilisateurs
+/**
+ * Interface pour gérer les connexions utilisateurs disposant d'un compte
+ */
 public interface IConnexion {
+
+    /**
+     * Authentifie un utilisateur
+     *
+     * @param email identifiant de connexion
+     * @param password mot de passe
+     * @return true si authentification réussie
+     */
     boolean seConnecter(String email, String password);
+
+    /**
+     * Déconnecte l'utilisateur
+     *
+     * @return true si déconnexion réussie
+     */
     boolean seDeconnecter();
-    boolean miseAJourCompte(Utilisateur utilisateur);
+
+    /**
+     * Met à jour les informations du compte utilisateur
+     *
+     * @param compte compte mis à jour
+     * @return true si mise à jour réussie
+     */
+    boolean miseAJourCompte(Compte compte);
 }
