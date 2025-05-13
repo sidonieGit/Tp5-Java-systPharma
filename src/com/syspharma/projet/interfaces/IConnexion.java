@@ -2,32 +2,32 @@ package com.syspharma.projet.interfaces;
 
 import com.syspharma.projet.model.Compte;
 
-/**
- * Interface pour gérer les connexions utilisateurs disposant d'un compte
- */
 public interface IConnexion {
 
     /**
-     * Authentifie un utilisateur
-     *
-     * @param email identifiant de connexion
-     * @param password mot de passe
-     * @return true si authentification réussie
+     * Authentifie un utilisateur.
+     * @param email identifiant
+     * @param motDePasse mot de passe
+     * @return true si les identifiants sont valides
      */
-    boolean seConnecter(String email, String password);
+    boolean seConnecter(String email, String motDePasse);
 
     /**
-     * Déconnecte l'utilisateur
-     *
-     * @return true si déconnexion réussie
+     * Déconnecte l'utilisateur.
+     * @return true si la déconnexion a réussi
      */
     boolean seDeconnecter();
 
     /**
-     * Met à jour les informations du compte utilisateur
-     *
-     * @param compte compte mis à jour
-     * @return true si mise à jour réussie
+     * Met à jour les informations du compte (ex : mot de passe).
+     * @param nouveauCompte les nouvelles données
+     * @return true si la mise à jour est réussie
      */
-    boolean miseAJourCompte(Compte compte);
+    boolean miseAJourCompte(Compte nouveauCompte);
+
+    /**
+     * Vérifie si un compte est actif.
+     * @return true si actif, false sinon
+     */
+    boolean estActif();
 }

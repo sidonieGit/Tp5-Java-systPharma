@@ -4,6 +4,7 @@ import com.syspharma.projet.enums.EtatPanier;
 import com.syspharma.projet.model.Medicament;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Panier {
@@ -13,14 +14,6 @@ public class Panier {
     public Panier() {
         this.articles = new ArrayList<>();
         this.etat = EtatPanier.EN_COURS;
-    }
-
-    public void setArticles(List<ArticlePanier> articles) {
-        this.articles = articles;
-    }
-
-    public void setEtat(EtatPanier etat) {
-        this.etat = etat;
     }
 
     public void ajouterArticle(ArticlePanier article) {
@@ -56,5 +49,32 @@ public class Panier {
 
     public void valider() {
         this.etat = EtatPanier.VALIDE;
+    }
+
+    // ✅ Ajout : incrémenter la quantité d’un médicament existant
+    public void incrementerQuantite(Medicament medicament) {
+        for (ArticlePanier article : articles) {
+            if (article.getMedicament().equals(medicament)) {
+                article.setQuantite(article.getQuantite() + 1);
+                return;
+            }
+        }
+    }
+
+    // ✅ Ajout : décrémenter la quantité ou supprimer si 0
+    public void decrementerQuantite(Medicament medicament) {
+        Iterator<ArticlePanier> iterator = articles.iterator();
+        while (iterator.hasNext()) {
+            ArticlePanier article = iterator.next();
+            if (article.getMedicament().equals(medicament)) {
+                int nouvelleQuantite = article.getQuantite() - 1;
+                if (nouvelleQuantite <= 0) {
+                    iterator.remove(); // supprime l’article
+                } else {
+                    article.setQuantite(nouvelleQuantite);
+                }
+                return;
+            }
+        }
     }
 }

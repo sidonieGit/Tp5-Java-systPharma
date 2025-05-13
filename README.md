@@ -83,10 +83,13 @@ Les principales entités du projet sont :
 ## 📊 Diagrammes
 
 ### 🧰 Use Case Diagram
-![use case diagram](src/com/syspharma/projet/img/Use-case-diag.PNG)
+![use case diagram](src/com/syspharma/projet/img/UseCaseDiagV9Sido.PNG)
 
 ### 📘 Class Diagram
-![class diagram](src/com/syspharma/projet/img/Class-diag.PNG)
+![class diagram](src/com/syspharma/projet/img/ClassDiagramV9.jpg)
+
+### 📘 Class Diagram decoupage moderne -evolution de quelques class avec classes services
+![class diagram](src/com/syspharma/projet/img/ClassDiagramV9Services.jpg)
 
 ---
 

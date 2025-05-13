@@ -1,5 +1,6 @@
 package com.syspharma.projet.model;
 
+import com.syspharma.projet.enums.Role;
 import com.syspharma.projet.interfaces.IConnexion;
 
 /**
@@ -14,14 +15,14 @@ public abstract class Utilisateur implements IConnexion {
     protected String password;
     protected Compte compte;
 
-    public Utilisateur(String nom, String prenom, String email, String adresse, String telephone, String password) {
+    public Utilisateur(String nom, String prenom, String email, String adresse, String telephone, String password, Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.adresse = adresse;
         this.telephone = telephone;
         this.password = password;
-        this.compte = new Compte(email, password);
+        this.compte = new Compte(email, password, role); // ✅ rôle passé à Compte
     }
 
     // Getters
@@ -57,5 +58,10 @@ public abstract class Utilisateur implements IConnexion {
     public boolean miseAJourCompte(Compte compte) {
         this.compte.setMotDePasse(compte.getMotDePasse());
         return true;
+    }
+
+    @Override
+    public boolean estActif() {
+        return this.compte.getStatut().isActif(); // ✅ méthode bien en place maintenant
     }
 }

@@ -1,5 +1,7 @@
 package com.syspharma.projet.model;
 
+import com.syspharma.projet.enums.Role;
+
 /**
  * Représente un agent de pharmacie en charge des stocks et des commandes.
  */
@@ -8,7 +10,7 @@ public class AgentPharmacie extends Utilisateur {
     private Pharmacie pharmacie;
 
     public AgentPharmacie(String nom, String prenom, String email, String adresse, String telephone, String password, String matricule) {
-        super(nom, prenom, email, adresse, telephone, password);
+        super(nom, prenom, email, adresse, telephone, password, Role.AGENT);
         this.matricule = matricule;
     }
 

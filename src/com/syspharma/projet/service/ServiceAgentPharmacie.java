@@ -1,14 +1,19 @@
 package com.syspharma.projet.service;
 
-import com.syspharma.projet.model.*;
 import com.syspharma.projet.commande.Commande;
 import com.syspharma.projet.enums.StatutCommande;
+import com.syspharma.projet.model.*;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Service lié aux actions de l’agent de pharmacie : gestion des stocks et assurances.
+ */
 public class ServiceAgentPharmacie {
+
+    // ---------- Gestion des médicaments ----------
 
     public void ajouterMedicament(Pharmacie pharmacie, Medicament medicament) {
         pharmacie.getStock().add(medicament);
@@ -26,6 +31,8 @@ public class ServiceAgentPharmacie {
         return pharmacie.getStock();
     }
 
+    // ---------- Gestion des assurances ----------
+
     public void ajouterAssurance(Pharmacie pharmacie, Assurance assurance) {
         pharmacie.getAssurances().add(assurance);
     }
@@ -34,21 +41,12 @@ public class ServiceAgentPharmacie {
         pharmacie.getAssurances().remove(assurance);
     }
 
-    public void confirmerLivraison(Commande commande) {
-        commande.setStatut(StatutCommande.LIVREE);
-    }
+    // ---------- Interaction avec les services de commande ----------
 
-    public void annulerCommande(Commande commande) {
-        commande.setStatut(StatutCommande.ANNULEE);
-    }
+
     /**
      * Lister les clients ayant passé une commande dans une pharmacie,
      * avec ou sans filtre de statut.
-     *
-     * @param commandes liste des commandes globales
-     * @param pharmacie la pharmacie concernée
-     * @param statut (optionnel) statut à filtrer, sinon null
-     * @return liste unique des clients
      */
     public Set<Client> listerClientsAyantCommandeDansPharmacie(List<Commande> commandes, Pharmacie pharmacie, StatutCommande statut) {
         return commandes.stream()
@@ -60,10 +58,6 @@ public class ServiceAgentPharmacie {
 
     /**
      * Vérifie dans quelle pharmacie une commande a été enregistrée.
-     *
-     * @param client le client concerné
-     * @param numeroCommande le numéro de commande
-     * @return la pharmacie où la commande a été passée, ou null si non trouvée
      */
     public Pharmacie verifierPharmacieCommande(Client client, String numeroCommande) {
         return client.getCommandes().stream()
@@ -73,4 +67,3 @@ public class ServiceAgentPharmacie {
                 .orElse(null);
     }
 }
-

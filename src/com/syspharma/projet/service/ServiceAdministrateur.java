@@ -2,13 +2,19 @@ package com.syspharma.projet.service;
 
 import com.syspharma.projet.enums.StatutCompte;
 import com.syspharma.projet.model.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service dédié à l’administration : gestion des pharmacies et utilisateurs.
+ */
 public class ServiceAdministrateur {
 
     private List<Pharmacie> pharmacies = new ArrayList<>();
     private List<Utilisateur> utilisateurs = new ArrayList<>();
+
+    // ---------- Gestion des pharmacies ----------
 
     public void ajouterPharmacie(Pharmacie p) {
         pharmacies.add(p);
@@ -25,6 +31,8 @@ public class ServiceAdministrateur {
     public List<Pharmacie> listerPharmacies() {
         return pharmacies;
     }
+
+    // ---------- Gestion des comptes utilisateurs ----------
 
     public void creerCompteAgent(String nom, String prenom, String email, String adresse, String telephone, String password, String matricule, Pharmacie pharmacie) {
         AgentPharmacie agent = new AgentPharmacie(nom, prenom, email, adresse, telephone, password, matricule);
