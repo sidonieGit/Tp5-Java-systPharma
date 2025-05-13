@@ -1,25 +1,31 @@
 package com.syspharma.projet.model;
 
+import com.syspharma.projet.enums.Role;
 import com.syspharma.projet.enums.StatutCompte;
 
 import java.time.LocalDate;
 
+/**
+ * Représente un compte utilisateur (client, agent, admin).
+ */
 public class Compte {
-    private String identifiant; // = email
+    private String identifiant;
     private String motDePasse;
     private StatutCompte statut;
     private LocalDate dateCreation;
-    private LocalDate dateDerniereConnexion;
+    private LocalDate derniereConnexion;
+    private Role role; // ✅ Ajout de rôle
 
-    public Compte(String identifiant, String motDePasse) {
+    public Compte(String identifiant, String motDePasse, Role role) {
         this.identifiant = identifiant;
         this.motDePasse = motDePasse;
-        this.dateCreation = LocalDate.now();
-        this.dateDerniereConnexion = dateCreation;
         this.statut = StatutCompte.ACTIF;
+        this.dateCreation = LocalDate.now();
+        this.derniereConnexion = LocalDate.now();
+        this.role = role;
     }
 
-    // getters / setters
+    // Getters et Setters
 
     public String getIdentifiant() {
         return identifiant;
@@ -49,26 +55,19 @@ public class Compte {
         return dateCreation;
     }
 
-    public void setDateCreation(LocalDate dateCreation) {
-        this.dateCreation = dateCreation;
+    public LocalDate getDerniereConnexion() {
+        return derniereConnexion;
     }
 
-    public LocalDate getDateDerniereConnexion() {
-        return dateDerniereConnexion;
+    public void setDerniereConnexion(LocalDate derniereConnexion) {
+        this.derniereConnexion = derniereConnexion;
     }
 
-    public void setDateDerniereConnexion(LocalDate dateDerniereConnexion) {
-        this.dateDerniereConnexion = dateDerniereConnexion;
+    public Role getRole() {
+        return role;
     }
 
-    @Override
-    public String toString() {
-        return "Compte{" +
-                "identifiant='" + identifiant + '\'' +
-                ", motDePasse='" + motDePasse + '\'' +
-                ", statut=" + statut +
-                ", dateCreation=" + dateCreation +
-                ", dateDerniereConnexion=" + dateDerniereConnexion +
-                '}';
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

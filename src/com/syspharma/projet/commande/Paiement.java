@@ -10,13 +10,14 @@ public class Paiement {
     private LocalDate datePaiement;
     private Commande commande;
 
-    public Paiement(double montant, String modePaiementStr, Commande commande) {
+    public Paiement(double montant, ModePaiement modePaiement, Commande commande) {
         this.montant = montant;
-        this.modePaiement = ModePaiement.valueOf(modePaiementStr.toUpperCase());
+        this.modePaiement = modePaiement;
         this.datePaiement = LocalDate.now();
         this.commande = commande;
     }
 
+    // Getters
     public double getMontant() {
         return montant;
     }
@@ -32,4 +33,6 @@ public class Paiement {
     public Commande getCommande() {
         return commande;
     }
+
+    // Setters éventuels si nécessaires
 }

@@ -2,6 +2,7 @@ package com.syspharma.projet.model;
 
 import com.syspharma.projet.commande.Commande;
 import com.syspharma.projet.commande.Panier;
+import com.syspharma.projet.enums.Role;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class Client extends Utilisateur {
     private List<Commande> commandes;
 
     public Client(String nom, String prenom, String email, String adresse, String telephone, String password, String numeroCommande) {
-        super(nom, prenom, email, adresse, telephone, password);
+        super(nom, prenom, email, adresse, telephone, password, Role.CLIENT);
         this.numeroCommande = numeroCommande;
         this.panier = new Panier();
         this.commandes = new ArrayList<>();
