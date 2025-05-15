@@ -82,14 +82,16 @@ Les principales entités du projet sont :
 
 ## 📊 Diagrammes
 
-### 🧰 Use Case Diagram
+### 🧰 Use Case Diag
+
 ![use case diagram](src/com/syspharma/projet/img/UseCaseDiagV9Sido.PNG)
 
 ### 📘 Class Diagram
 ![class diagram](src/com/syspharma/projet/img/ClassDiagramV9.jpg)
 
-### 📘 Class Diagram decoupage moderne -evolution de quelques class avec classes services
+### 📘 Class Diagram decoupage moderne -évolution de quelques class avec les classes services
 ![class diagram](src/com/syspharma/projet/img/ClassDiagramV9Services.jpg)
+=======
 
 ---
 
@@ -124,4 +126,4 @@ Les principales entités du projet sont :
 - Linkedin: www.linkedin.com/in/sidonie-djuissi-fohouo
 - Email: sidoniedjuissifohouo@gmail.com
 - Tel: +237 696 00 23 77
-- Dernière mise à jour 09/05/2025
+- Dernière mise à jour 13/05/2025
